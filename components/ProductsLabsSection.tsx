@@ -1,0 +1,50 @@
+import { AnimatedSection } from "./AnimatedSection";
+import { MagneticButton } from "./MagneticButton";
+
+export function ProductsLabsSection() {
+  return (
+    <section id="labs" className="section-pad">
+      <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+        <AnimatedSection className="labs-manifesto">
+          <p className="system-label">Pravaron Labs</p>
+          <h2>We do not only serve clients. We build our own AI-native products.</h2>
+          <p>
+            Pravaron Labs explores automation systems, campaign intelligence, agent workflows, and product experiments that push businesses toward an autonomous future.
+          </p>
+          <div className="mt-8">
+            <MagneticButton href="/labs" variant="secondary">
+              Explore Pravaron Labs
+            </MagneticButton>
+          </div>
+        </AnimatedSection>
+
+        <AnimatedSection className="labs-product" delay={0.08}>
+          <div className="labs-product-visual">
+            <div className="labs-static-visual" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+              <i />
+            </div>
+          </div>
+          <span className="system-label text-cyan">Active system</span>
+          <h3>Mark8bot</h3>
+          <p>
+            Telegram-first campaign manager for automated group posting, AI replies, bulk direct messages, multi-account outreach, content generation, and analytics.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <MagneticButton href="https://mark8bot.com" target="_blank">
+              Visit Mark8bot
+            </MagneticButton>
+            <MagneticButton
+              href="mailto:careers@pravarontechnologies.com?subject=Product Inquiry: Mark8bot"
+              variant="secondary"
+            >
+              Product Inquiry
+            </MagneticButton>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}

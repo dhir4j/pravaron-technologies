@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Pravaron agentic infrastructure blueprint</title>
+  <desc id="desc">A static blueprint-style social preview for Pravaron Technologies showing layered agentic AI infrastructure.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#061113"/><stop offset="1" stop-color="#18211f"/></linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#dff7f3" stroke-opacity=".055"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <g font-family="Arial, sans-serif" font-weight="700">
+    <text x="72" y="138" fill="#12d7d1" font-size="25">PRAVARON TECHNOLOGIES</text>
+    <text x="72" y="230" fill="#e9f6f5" font-size="62">Agentic AI Infrastructure</text>
+    <text x="72" y="292" fill="#a7b8bb" font-size="27">Blueprints for autonomous business systems</text>
+  </g>
+  <g transform="translate(650 78)" fill="none">
+    <rect x="0" y="0" width="440" height="440" rx="18" stroke="#dff7f3" stroke-opacity=".18" stroke-width="2"/>
+    <path d="M24 96H416M24 176H416M24 256H416M24 336H416M116 24V416M248 24V416" stroke="#dff7f3" stroke-opacity=".12"/>
+    <rect x="46" y="58" width="130" height="52" rx="8" fill="#081011" stroke="#12d7d1" stroke-opacity=".5"/>
+    <rect x="224" y="58" width="150" height="52" rx="8" fill="#081011" stroke="#dff7f3" stroke-opacity=".28"/>
+    <rect x="116" y="194" width="196" height="64" rx="9" fill="#0d1d1d" stroke="#f0bd58" stroke-opacity=".58"/>
+    <rect x="46" y="344" width="130" height="52" rx="8" fill="#081011" stroke="#12d7d1" stroke-opacity=".36"/>
+    <rect x="224" y="344" width="150" height="52" rx="8" fill="#081011" stroke="#12d7d1" stroke-opacity=".36"/>
+    <path d="M176 84H224M214 110V194M214 258V344M176 370H224M312 370H374" stroke="#12d7d1" stroke-opacity=".62" stroke-width="3"/>
+    <path d="M24 466H190M214 466H290M314 466H440" stroke="#f0bd58" stroke-opacity=".55" stroke-width="3"/>
+  </g>
+</svg>

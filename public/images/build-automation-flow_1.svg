@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700" role="img" aria-labelledby="title desc">
+  <title id="title">Automation platform deployment blueprint</title>
+  <desc id="desc">A static blueprint of automation lanes connecting triggers, APIs, rules, approvals, notifications, and outcomes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#071315"/><stop offset="1" stop-color="#1a211e"/></linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#dff7f3" stroke-opacity=".055"/></pattern>
+  </defs>
+  <rect width="900" height="700" rx="28" fill="url(#bg)"/>
+  <rect width="900" height="700" fill="url(#grid)"/>
+  <g fill="none" stroke="#dff7f3" stroke-opacity=".16">
+    <rect x="58" y="68" width="784" height="564" rx="16"/>
+    <path d="M58 176H842M58 298H842M58 420H842M58 542H842"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-weight="700">
+    <text x="78" y="122" fill="#dff7f3" font-size="25">AUTOMATION DEPLOYMENT MAP</text>
+    <text x="78" y="151" fill="#8fa8aa" font-size="15">triggers / APIs / rules / approvals / alerts / outcomes</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-weight="700" fill="#dff7f3" font-size="18">
+    <rect x="90" y="220" width="126" height="58" rx="8" fill="#081011" stroke="#12d7d1" stroke-opacity=".55"/>
+    <text x="120" y="255">TRIGGER</text>
+    <rect x="284" y="220" width="126" height="58" rx="8" fill="#081011" stroke="#12d7d1" stroke-opacity=".42"/>
+    <text x="328" y="255">API</text>
+    <rect x="478" y="220" width="126" height="58" rx="8" fill="#081011" stroke="#f0bd58" stroke-opacity=".56"/>
+    <text x="524" y="255">RULE</text>
+    <rect x="672" y="220" width="126" height="58" rx="8" fill="#081011" stroke="#12d7d1" stroke-opacity=".42"/>
+    <text x="702" y="255">ACTION</text>
+    <rect x="186" y="452" width="150" height="58" rx="8" fill="#081011" stroke="#dff7f3" stroke-opacity=".28"/>
+    <text x="222" y="487">APPROVAL</text>
+    <rect x="432" y="452" width="150" height="58" rx="8" fill="#081011" stroke="#dff7f3" stroke-opacity=".28"/>
+    <text x="470" y="487">ALERTS</text>
+    <rect x="636" y="452" width="150" height="58" rx="8" fill="#081011" stroke="#f0bd58" stroke-opacity=".55"/>
+    <text x="672" y="487">OUTCOME</text>
+  </g>
+  <g fill="none" stroke-linecap="square" stroke-width="3">
+    <path d="M216 249H284M410 249H478M604 249H672" stroke="#12d7d1" stroke-opacity=".66"/>
+    <path d="M541 278V370H261V452M541 370H507V452M735 278V452" stroke="#f0bd58" stroke-opacity=".5"/>
+  </g>
+</svg>

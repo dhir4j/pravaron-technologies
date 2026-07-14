@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Mark8bot product architecture blueprint</title>
+  <desc id="desc">A static product architecture blueprint for Mark8bot showing campaign planning, posting, AI replies, direct messages, analytics, and accounts.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#071315"/><stop offset="1" stop-color="#19211f"/></linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#dff7f3" stroke-opacity=".055"/></pattern>
+  </defs>
+  <rect width="1200" height="720" rx="32" fill="url(#bg)"/>
+  <rect width="1200" height="720" fill="url(#grid)"/>
+  <rect x="70" y="64" width="1060" height="590" rx="18" fill="none" stroke="#dff7f3" stroke-opacity=".16" stroke-width="2"/>
+  <g font-family="Arial, sans-serif" font-weight="700">
+    <text x="100" y="122" fill="#dff7f3" font-size="30">MARK8BOT SYSTEM BLUEPRINT</text>
+    <text x="100" y="156" fill="#8fa8aa" font-size="16">campaign manager / AI replies / group posting / analytics</text>
+  </g>
+  <g fill="none" stroke="#dff7f3" stroke-opacity=".13"><path d="M70 196H1130M70 526H1130M352 196V654M776 196V654"/></g>
+  <g font-family="Arial, sans-serif" font-weight="700" fill="#dff7f3" font-size="19">
+    <rect x="110" y="256" width="220" height="68" rx="9" fill="#081011" stroke="#12d7d1" stroke-opacity=".44"/>
+    <text x="140" y="297">CAMPAIGN PLAN</text>
+    <rect x="110" y="382" width="220" height="68" rx="9" fill="#081011" stroke="#12d7d1" stroke-opacity=".34"/>
+    <text x="140" y="423">ACCOUNT POOL</text>
+    <rect x="430" y="250" width="286" height="80" rx="10" fill="#0d1d1d" stroke="#f0bd58" stroke-opacity=".56"/>
+    <text x="466" y="298">POSTING ORCHESTRATOR</text>
+    <rect x="430" y="378" width="286" height="80" rx="10" fill="#0d1d1d" stroke="#12d7d1" stroke-opacity=".44"/>
+    <text x="466" y="426">AI REPLY ENGINE</text>
+    <rect x="850" y="242" width="220" height="68" rx="9" fill="#081011" stroke="#dff7f3" stroke-opacity=".28"/>
+    <text x="880" y="283">GROUP POSTS</text>
+    <rect x="850" y="352" width="220" height="68" rx="9" fill="#081011" stroke="#dff7f3" stroke-opacity=".28"/>
+    <text x="880" y="393">DIRECT MESSAGES</text>
+    <rect x="850" y="462" width="220" height="68" rx="9" fill="#081011" stroke="#f0bd58" stroke-opacity=".5"/>
+    <text x="880" y="503">ANALYTICS</text>
+  </g>
+  <g fill="none" stroke-width="3" stroke-linecap="square">
+    <path d="M330 290H430M330 416H430M716 290H850M716 418H850M716 418H790V496H850" stroke="#12d7d1" stroke-opacity=".58"/>
+    <path d="M573 330V378" stroke="#f0bd58" stroke-opacity=".62"/>
+  </g>
+</svg>
