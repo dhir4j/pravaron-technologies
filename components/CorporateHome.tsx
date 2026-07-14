@@ -4,6 +4,10 @@ import { AgentGrid } from "./AgentGrid";
 export function CorporateHome() {
   return (
     <section className="corp-hero">
+      <div className="corp-hero-visual" aria-hidden="true">
+        <AgentGrid />
+      </div>
+
       <div className="corp-hero-shell">
         <div className="corp-hero-content">
           <p className="corp-hero-subtitle">Intelligent Systems · Autonomous Operations</p>
@@ -21,10 +25,6 @@ export function CorporateHome() {
               Explore Capabilities
             </Link>
           </div>
-        </div>
-
-        <div className="corp-hero-visual">
-          <AgentGrid />
         </div>
       </div>
     </section>
