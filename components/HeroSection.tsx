@@ -17,7 +17,7 @@ export function HeroSection() {
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <MagneticButton href="mailto:careers@pravarontechnologies.com?subject=Start a Project">
+            <MagneticButton href="mailto:contact@pravarontechnologies.com?subject=Start a Project">
               Start a Project
             </MagneticButton>
             <MagneticButton href="#builds" variant="secondary">

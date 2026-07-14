@@ -22,7 +22,7 @@ export function ContactLanes() {
 
         <AnimatedSection className="contact-direct" delay={0.1}>
           <span className="system-label">Direct line</span>
-          <a href="mailto:careers@pravarontechnologies.com">careers@pravarontechnologies.com</a>
+          <a href="mailto:contact@pravarontechnologies.com">contact@pravarontechnologies.com</a>
           <p>O-621, Block-A, EON Fairfox, Sector-140A, Noida.</p>
         </AnimatedSection>
       </div>

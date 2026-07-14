@@ -30,14 +30,14 @@ export function ProductsLabsSection() {
           <span className="system-label text-cyan">Active system</span>
           <h3>Mark8bot</h3>
           <p>
-            Telegram-first campaign manager for automated group posting, AI replies, bulk direct messages, multi-account outreach, content generation, and analytics.
+            Social media campaign workspace for scheduled publishing, assisted responses, content planning, approval workflows, and performance visibility.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <MagneticButton href="https://mark8bot.com" target="_blank">
               Visit Mark8bot
             </MagneticButton>
             <MagneticButton
-              href="mailto:careers@pravarontechnologies.com?subject=Product Inquiry: Mark8bot"
+              href="mailto:contact@pravarontechnologies.com?subject=Product Inquiry: Mark8bot"
               variant="secondary"
             >
               Product Inquiry

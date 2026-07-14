@@ -13,16 +13,16 @@ export function FinalCTA() {
             Bring a workflow, product idea, or AI integration challenge. Pravaron can help shape the strategy, architecture, software, and automation path.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <MagneticButton href="mailto:careers@pravarontechnologies.com?subject=Start a Project">
+            <MagneticButton href="mailto:contact@pravarontechnologies.com?subject=Start a Project">
               Start a Project
             </MagneticButton>
-            <MagneticButton href="mailto:careers@pravarontechnologies.com?subject=AI Strategy Consultation" variant="secondary">
+            <MagneticButton href="mailto:contact@pravarontechnologies.com?subject=AI Strategy Consultation" variant="secondary">
               Book Consultation
             </MagneticButton>
           </div>
-          <a className="final-mail-link" href="mailto:careers@pravarontechnologies.com">
+          <a className="final-mail-link" href="mailto:contact@pravarontechnologies.com">
             <Mail size={16} aria-hidden="true" />
-            careers@pravarontechnologies.com
+            contact@pravarontechnologies.com
           </a>
         </div>
         <div className="corporate-final-panel" aria-hidden="true">

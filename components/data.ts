@@ -98,12 +98,12 @@ export const techLayers = [
 ];
 
 export const mark8botFeatures = [
-  ["Automated group posting", "Scheduled campaign content across Telegram groups without manual repetition."],
-  ["AI replies", "Context-aware responses that keep conversations moving inside campaigns."],
-  ["Bulk direct messages", "Outreach at volume with account-safe pacing and delivery tracking."],
-  ["Multi-account outreach", "Coordinated campaigns across accounts from one control surface."],
-  ["Content generation", "Campaign copy drafted, varied, and reused without starting from zero."],
-  ["Campaign analytics", "Delivery, engagement, and account health visible in one place."]
+  ["Scheduled publishing", "Campaign content planned and released across approved social media destinations."],
+  ["Assisted responses", "Suggested replies help teams answer faster while keeping human review in control."],
+  ["Audience engagement", "Campaign interactions are organized so teams can respond with context and consistency."],
+  ["Approval workflows", "Drafts, schedules, and responses can be reviewed before they go live."],
+  ["Content planning", "Campaign copy can be drafted, varied, and reused without starting from zero."],
+  ["Campaign analytics", "Delivery, engagement, and operational health stay visible in one place."]
 ];
 
 export const labsPrinciples = [
@@ -117,19 +117,19 @@ export const contactLanes = [
     title: "Start a Project",
     body: "Bring a workflow, product idea, or system that needs to be built. We shape scope, architecture, and delivery.",
     action: "Start a Project",
-    href: "mailto:careers@pravarontechnologies.com?subject=Start a Project"
+    href: "mailto:contact@pravarontechnologies.com?subject=Start a Project"
   },
   {
     title: "Book a Consultation",
     body: "Evaluate where AI and automation create value in your operations before committing to a build.",
     action: "Book Consultation",
-    href: "mailto:careers@pravarontechnologies.com?subject=AI Strategy Consultation"
+    href: "mailto:contact@pravarontechnologies.com?subject=AI Strategy Consultation"
   },
   {
     title: "Product Inquiry",
     body: "Questions about Mark8bot or other Pravaron Labs products, partnerships, or white-label options.",
     action: "Product Inquiry",
-    href: "mailto:careers@pravarontechnologies.com?subject=Product Inquiry"
+    href: "mailto:contact@pravarontechnologies.com?subject=Product Inquiry"
   }
 ];
 

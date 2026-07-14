@@ -5,7 +5,7 @@ import { PageHero } from "@/components/PageHero";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start a project, book an AI strategy consultation, or ask about Pravaron Labs products. Direct line: careers@pravarontechnologies.com."
+    "Start a project, book an AI strategy consultation, or ask about Pravaron Labs products. Direct line: contact@pravarontechnologies.com."
 };
 
 export default function ContactPage() {

@@ -14,7 +14,7 @@ export function CorporateHome() {
             Pravaron Technologies builds the AI, automation, and software systems that turn manual operations into autonomous, self-running businesses.
           </p>
           <div className="corp-hero-actions">
-            <Link href="mailto:careers@pravarontechnologies.com?subject=Start a Project" className="corp-hero-button primary">
+            <Link href="mailto:contact@pravarontechnologies.com?subject=Start a Project" className="corp-hero-button primary">
               Start a Project
             </Link>
             <Link href="/services" className="corp-hero-button secondary">
