@@ -169,7 +169,7 @@ export function Header() {
   return (
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
       <Link href="/" className="brand-lockup" aria-label="Pravaron Technologies home">
-        <strong>Pravaron</strong>
+        <strong>Pravaron Technologies</strong>
       </Link>
       <DesktopNav />
       <MobileNav />

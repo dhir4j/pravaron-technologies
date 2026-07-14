@@ -9,7 +9,6 @@ import { Suspense } from "react";
 function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [userType, setUserType] = useState<"applicant" | "admin">("applicant");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -37,24 +36,16 @@ function LoginForm() {
     setLoading(true);
 
     try {
-      const result = await signIn(
-        userType === "applicant" ? "applicant-login" : "admin-login",
-        {
-          email,
-          password,
-          redirect: false,
-        }
-      );
+      const result = await signIn("applicant-login", {
+        email,
+        password,
+        redirect: false,
+      });
 
       if (result?.error) {
         setError(result.error);
       } else if (result?.ok) {
-        // Redirect based on user type
-        if (userType === "admin") {
-          router.push("/admin");
-        } else {
-          router.push("/dashboard");
-        }
+        router.push("/dashboard");
         router.refresh();
       }
     } catch (err: any) {
@@ -86,7 +77,7 @@ function LoginForm() {
           {/* Title */}
           <div className="mb-8">
             <h2 className="text-4xl font-bold text-ink mb-3">Welcome Back</h2>
-            <p className="text-muted text-lg">Sign in to your account</p>
+            <p className="text-muted text-lg">Sign in to your applicant account</p>
           </div>
 
           {/* Success Message */}
@@ -95,32 +86,6 @@ function LoginForm() {
               {success}
             </div>
           )}
-
-          {/* User Type Toggle */}
-          <div className="flex gap-2 p-1 bg-orange-subtle/20 rounded-2xl mb-8">
-            <button
-              type="button"
-              onClick={() => setUserType("applicant")}
-              className={`flex-1 py-3 px-6 rounded-xl text-sm font-semibold transition-all ${
-                userType === "applicant"
-                  ? "bg-orange text-white shadow-lg"
-                  : "text-muted hover:text-ink"
-              }`}
-            >
-              Applicant
-            </button>
-            <button
-              type="button"
-              onClick={() => setUserType("admin")}
-              className={`flex-1 py-3 px-6 rounded-xl text-sm font-semibold transition-all ${
-                userType === "admin"
-                  ? "bg-orange text-white shadow-lg"
-                  : "text-muted hover:text-ink"
-              }`}
-            >
-              Admin
-            </button>
-          </div>
 
           {/* Error Message */}
           {error && (
@@ -169,44 +134,33 @@ function LoginForm() {
           </form>
 
           {/* Footer Links */}
-          {userType === "applicant" && (
-            <div className="mt-8 text-center">
-              <p className="text-sm text-muted">
-                Don't have an account?{" "}
-                <Link href="/register" className="text-orange font-semibold hover:underline">
-                  Create Account
-                </Link>
-              </p>
-            </div>
-          )}
-
-          {userType === "admin" && (
-            <div className="mt-8 text-center">
-              <p className="text-xs text-muted bg-orange-subtle/20 p-3 rounded-xl border border-orange/30">
-                <span className="block text-sm font-semibold text-ink mb-1">Admin Access</span>
-                <strong>admin@pravaron.com</strong> / <strong>admin123</strong>
-              </p>
-            </div>
-          )}
+          <div className="mt-8 text-center">
+            <p className="text-sm text-muted">
+              Don't have an account?{" "}
+              <Link href="/register" className="text-orange font-semibold hover:underline">
+                Create Account
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Right Side - AI/Automation Content */}
+      {/* Right Side - Applicant Portal Content */}
       <div className="hidden lg:flex flex-col justify-center px-16 py-12 bg-gradient-to-br from-[#E2231A] via-[#A10E0A] to-[#7A0A08] text-white">
         <div className="max-w-xl">
           {/* Main Content */}
           <div className="mb-12">
             <div className="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold mb-6">
-              AI-Powered Hiring Platform
+              Pravaron Careers Portal
             </div>
             <h2 className="text-5xl font-bold mb-6 leading-tight">
-              Automate Your
+              Apply Once.
               <br />
-              Hiring Process
+              Stay In The Loop.
             </h2>
             <p className="text-xl text-white/90 mb-8 leading-relaxed">
-              Transform your recruitment workflow with intelligent automation, 
-              real-time tracking, and seamless communication.
+              This is where Pravaron Technologies candidates track their application — real-time
+              status updates, secure verification, and direct communication with our team.
             </p>
           </div>
 
@@ -215,13 +169,13 @@ function LoginForm() {
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-bold mb-1">AI-Driven Matching</h3>
+                <h3 className="text-lg font-bold mb-1">Real-Time Status</h3>
                 <p className="text-white/80">
-                  Intelligent algorithms match the best candidates to your positions
+                  Know exactly where your application stands, updated the moment it changes
                 </p>
               </div>
             </div>
@@ -229,13 +183,13 @@ function LoginForm() {
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <div>
                 <h3 className="text-lg font-bold mb-1">Instant Notifications</h3>
                 <p className="text-white/80">
-                  Real-time email updates for every application status change
+                  Get an email the moment your status changes — no need to check back manually
                 </p>
               </div>
             </div>
@@ -247,9 +201,9 @@ function LoginForm() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-bold mb-1">Smart Dashboard</h3>
+                <h3 className="text-lg font-bold mb-1">Your Dashboard</h3>
                 <p className="text-white/80">
-                  Track applications, manage candidates, and make data-driven decisions
+                  See every application you've submitted to Pravaron Technologies in one place
                 </p>
               </div>
             </div>
@@ -263,25 +217,9 @@ function LoginForm() {
               <div>
                 <h3 className="text-lg font-bold mb-1">Secure & Verified</h3>
                 <p className="text-white/80">
-                  Email verification and secure authentication for all users
+                  Email verification and secure authentication protect your account
                 </p>
               </div>
-            </div>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-12 pt-8 border-t border-white/20 grid grid-cols-3 gap-8">
-            <div>
-              <div className="text-3xl font-bold mb-1">10x</div>
-              <div className="text-sm text-white/80">Faster Hiring</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold mb-1">100%</div>
-              <div className="text-sm text-white/80">Automated</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold mb-1">24/7</div>
-              <div className="text-sm text-white/80">Support</div>
             </div>
           </div>
         </div>
