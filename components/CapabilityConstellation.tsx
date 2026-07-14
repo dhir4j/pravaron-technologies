@@ -9,7 +9,7 @@ const buildShowcase = [
   {
     title: "Agentic AI Products",
     label: "Flagship build lane",
-    visual: "agentic",
+    image: "/images/generated/build-agentic-ai-products-card.webp",
     body: "Multi-agent workflows that plan, reason, execute, and keep humans in the right review points.",
     href: "/services#agentic-ai-products",
     size: "hero"
@@ -17,7 +17,7 @@ const buildShowcase = [
   {
     title: "Automation Platforms",
     label: "Operations into motion",
-    visual: "automation",
+    image: "/images/generated/build-automation-platforms-card.webp",
     body: "Reliable routes across APIs, approvals, alerts, dashboards, and recurring operational work.",
     href: "/services#automation-platforms",
     size: "wide"
@@ -25,7 +25,7 @@ const buildShowcase = [
   {
     title: "Decision Intelligence",
     label: "Signals to action",
-    visual: "decision",
+    image: "/images/generated/build-decision-intelligence-card.webp",
     body: "Context layers that collect signals, reason through options, and surface recommended action.",
     href: "/services#decision-intelligence",
     size: "compact"
@@ -33,7 +33,7 @@ const buildShowcase = [
   {
     title: "Internal AI Tools",
     label: "Domain-specific AI",
-    visual: "tools",
+    image: "/images/generated/build-internal-ai-tools-card.webp",
     body: "Secure internal products with AI interfaces, data access, permissions, and traceable workflows.",
     href: "/services#internal-ai-tools",
     size: "compact"
@@ -67,12 +67,7 @@ export function CapabilityConstellation() {
             >
               <Link href={item.href} className="build-card-link" aria-label={`Explore ${item.title}`}>
                 <div className="build-media">
-                  <div className={`build-static-visual build-static-${item.visual}`} aria-hidden="true">
-                    <i />
-                    <i />
-                    <i />
-                    <i />
-                  </div>
+                  <img className="build-card-image" src={item.image} alt={`${item.title} visual`} loading="lazy" />
                   <span>{item.label}</span>
                 </div>
                 <div className="build-card-copy">
@@ -88,4 +83,3 @@ export function CapabilityConstellation() {
     </section>
   );
 }
-
