@@ -199,17 +199,8 @@ export function SiteFooter() {
         </nav>
 
         <div className="footer-col">
-          <span>Account</span>
-          <Link href="/login">Login</Link>
-          <Link href="/register">Register</Link>
-          <Link href="/dashboard">Dashboard</Link>
-        </div>
-
-        <div className="footer-col">
           <span>Contact</span>
-          <a href="mailto:careers@pravarontechnologies.com?subject=Start a Project">Start a Project</a>
-          <a href="mailto:careers@pravarontechnologies.com?subject=AI Strategy Consultation">Book Consultation</a>
-          <a href="mailto:careers@pravarontechnologies.com">careers@pravarontechnologies.com</a>
+          <a href="mailto:contact@pravarontechnologies.com">contact@pravarontechnologies.com</a>
         </div>
       </div>
 

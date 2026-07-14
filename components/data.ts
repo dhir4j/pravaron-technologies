@@ -47,13 +47,6 @@ export const capabilities = [
 
 export const services = [
   {
-    slug: "custom-software-development",
-    title: "Custom Software Development",
-    body: "Build scalable, modern software platforms tailored to real business workflows.",
-    layer: "Application Layer",
-    deliverables: ["Product engineering", "APIs and integrations", "Admin and operator tools", "Design systems"]
-  },
-  {
     slug: "ai-integration-solutions",
     title: "AI Integration Solutions",
     body: "Integrate LLMs, agents, automation, and intelligent interfaces into existing systems.",

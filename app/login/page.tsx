@@ -192,7 +192,7 @@ function LoginForm() {
       </div>
 
       {/* Right Side - AI/Automation Content */}
-      <div className="hidden lg:flex flex-col justify-center px-16 py-12 bg-gradient-to-br from-[#C7546D] via-[#A63F56] to-[#8E2F45] text-white">
+      <div className="hidden lg:flex flex-col justify-center px-16 py-12 bg-gradient-to-br from-[#E2231A] via-[#A10E0A] to-[#7A0A08] text-white">
         <div className="max-w-xl">
           {/* Main Content */}
           <div className="mb-12">

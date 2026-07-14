@@ -4,13 +4,16 @@ export function VisionSection() {
   return (
     <section className="py-24 bg-gradient-to-b from-white via-orange-subtle/10 to-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Centered Heading */}
-        <div className="text-center mb-16">
-          <p className="text-xs font-bold uppercase tracking-widest text-orange mb-4">Operating Model</p>
+        {/* Heading */}
+        <div className="mb-16 max-w-3xl">
+          <p className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-orange mb-4">
+            <span className="h-px w-8 bg-orange" />
+            Operating Model
+          </p>
           <h2 className="text-5xl lg:text-6xl font-bold text-ink mb-6">
             From Software to <span className="bg-gradient-to-r from-orange via-orange-light to-pink bg-clip-text text-transparent">Autonomous Systems</span>
           </h2>
-          <p className="text-lg text-muted max-w-3xl mx-auto">
+          <p className="text-lg text-muted">
             AI is no longer only an interface. It is becoming the operating layer that turns context into coordinated action.
           </p>
         </div>

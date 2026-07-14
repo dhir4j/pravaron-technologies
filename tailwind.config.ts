@@ -5,40 +5,40 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Soft Pink/Rose palette - EXACT match from vivo v70 image
-        ink: "rgb(17 24 39 / <alpha-value>)",
+        // Red / White / Black brand palette
+        ink: "rgb(17 17 17 / <alpha-value>)",
         base: "rgb(255 255 255 / <alpha-value>)",
-        "band-1": "rgb(255 229 232 / <alpha-value>)",
-        "band-2": "rgb(255 214 219 / <alpha-value>)",
-        black: "rgb(26 26 26 / <alpha-value>)",
-        
-        // Primary: Medium-Dark Rose Pink #C7546D
-        orange: "rgb(199 84 109 / <alpha-value>)",
-        "orange-light": "rgb(214 112 136 / <alpha-value>)",
-        "orange-dark": "rgb(166 63 86 / <alpha-value>)",
-        "orange-subtle": "rgb(232 180 192 / <alpha-value>)",
-        
-        // Accent: Deeper rose
-        purple: "rgb(185 72 99 / <alpha-value>)",
-        pink: "rgb(214 112 136 / <alpha-value>)",
-        
-        muted: "rgb(107 114 128 / <alpha-value>)",
-        line: "rgba(17 24 39 / 0.06)",
-        
+        "band-1": "rgb(255 255 255 / <alpha-value>)",
+        "band-2": "rgb(244 244 244 / <alpha-value>)",
+        black: "rgb(10 10 10 / <alpha-value>)",
+
+        // Primary: bold red #E2231A
+        orange: "rgb(226 35 26 / <alpha-value>)",
+        "orange-light": "rgb(255 75 62 / <alpha-value>)",
+        "orange-dark": "rgb(161 14 10 / <alpha-value>)",
+        "orange-subtle": "rgb(240 216 214 / <alpha-value>)",
+
+        // Accent: red tones reused for gradients/badges
+        purple: "rgb(226 35 26 / <alpha-value>)",
+        pink: "rgb(255 75 62 / <alpha-value>)",
+
+        muted: "rgb(90 90 90 / <alpha-value>)",
+        line: "rgba(17 17 17 / 0.08)",
+
         // Legacy tokens
-        navy: "rgb(26 26 26 / <alpha-value>)",
-        navy2: "rgb(42 42 42 / <alpha-value>)",
+        navy: "rgb(10 10 10 / <alpha-value>)",
+        navy2: "rgb(26 26 26 / <alpha-value>)",
         paper: "rgb(255 255 255 / <alpha-value>)",
-        soft: "rgb(255 229 232 / <alpha-value>)",
-        soft2: "rgb(255 214 219 / <alpha-value>)",
-        orange2: "rgb(214 112 136 / <alpha-value>)",
-        blue: "rgb(199 84 109 / <alpha-value>)",
-        carbon: "rgb(26 26 26 / <alpha-value>)",
-        graphite: "rgb(42 42 42 / <alpha-value>)",
+        soft: "rgb(255 255 255 / <alpha-value>)",
+        soft2: "rgb(244 244 244 / <alpha-value>)",
+        orange2: "rgb(255 75 62 / <alpha-value>)",
+        blue: "rgb(226 35 26 / <alpha-value>)",
+        carbon: "rgb(10 10 10 / <alpha-value>)",
+        graphite: "rgb(26 26 26 / <alpha-value>)",
         panel: "rgb(255 255 255 / <alpha-value>)",
-        panel2: "rgb(255 229 232 / <alpha-value>)",
-        cyan: "rgb(199 84 109 / <alpha-value>)",
-        indigo: "rgb(199 84 109 / <alpha-value>)",
+        panel2: "rgb(244 244 244 / <alpha-value>)",
+        cyan: "rgb(226 35 26 / <alpha-value>)",
+        indigo: "rgb(226 35 26 / <alpha-value>)",
         emerald: "rgb(45 160 120 / <alpha-value>)"
       },
       fontFamily: {
@@ -58,8 +58,8 @@ const config: Config = {
         system: "14px"
       },
       boxShadow: {
-        signal: "0 8px 28px rgb(199 84 109 / 0.35)",
-        panel: "0 16px 48px rgb(17 24 39 / 0.10)"
+        signal: "0 8px 28px rgb(226 35 26 / 0.35)",
+        panel: "0 16px 48px rgb(17 17 17 / 0.10)"
       },
       transitionTimingFunction: {
         out: "cubic-bezier(0.23, 1, 0.32, 1)",
