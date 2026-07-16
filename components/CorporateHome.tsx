@@ -1,11 +1,19 @@
 import Link from "next/link";
-import { AgentGrid } from "./AgentGrid";
 
 export function CorporateHome() {
   return (
     <section className="corp-hero">
-      <div className="corp-hero-visual" aria-hidden="true">
-        <AgentGrid />
+      {/* Background Video */}
+      <div className="corp-hero-video-wrapper">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="corp-hero-video"
+        >
+          <source src="/assets/website-header-animation.mp4" type="video/mp4" />
+        </video>
       </div>
 
       <div className="corp-hero-shell">

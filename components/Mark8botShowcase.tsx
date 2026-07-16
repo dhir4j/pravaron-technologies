@@ -5,7 +5,7 @@ import { MagneticButton } from "./MagneticButton";
 
 export function Mark8botShowcase() {
   return (
-    <section className="mark8bot-showcase border-t border-b border-line">
+    <section id="mark8bot" className="mark8bot-showcase border-t border-b border-line scroll-mt-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mark8bot-shell">
           <div className="mark8bot-copy">
@@ -18,12 +18,6 @@ export function Mark8botShowcase() {
             <div className="mt-8 flex flex-wrap gap-3">
               <MagneticButton href="https://mark8bot.com" target="_blank">
                 Visit Mark8bot
-              </MagneticButton>
-              <MagneticButton
-                href="mailto:contact@pravarontechnologies.com?subject=Product Inquiry: Mark8bot"
-                variant="secondary"
-              >
-                Product Inquiry
               </MagneticButton>
             </div>
           </div>

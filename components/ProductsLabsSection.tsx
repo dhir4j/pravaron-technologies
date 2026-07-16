@@ -36,12 +36,6 @@ export function ProductsLabsSection() {
             <MagneticButton href="https://mark8bot.com" target="_blank">
               Visit Mark8bot
             </MagneticButton>
-            <MagneticButton
-              href="mailto:contact@pravarontechnologies.com?subject=Product Inquiry: Mark8bot"
-              variant="secondary"
-            >
-              Product Inquiry
-            </MagneticButton>
           </div>
         </AnimatedSection>
       </div>

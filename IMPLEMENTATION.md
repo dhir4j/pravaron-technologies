@@ -7,7 +7,7 @@ Complete implementation of Pravaron Technologies website redesign and hiring man
 ---
 
 ## 🎨 Design System
-
+         
 ### Color Palette
 - **Primary Pink**: `#C7546D` (Medium-dark pink)
 - **Light Pink**: `#D67088`

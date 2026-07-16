@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { useSession, signOut } from "next-auth/react";
-import { navItems } from "./data";
+import { navItems, services, capabilities } from "./data";
 
 function isActive(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -14,20 +14,79 @@ function isActive(pathname: string, href: string) {
 export function DesktopNav() {
   const pathname = usePathname();
   const { data: session } = useSession();
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
     <nav className="nav-pill" aria-label="Primary navigation">
-      {navItems.map((item) => (
-        <Link
-          className={`nav-link ${isActive(pathname, item.href) ? "is-active" : ""}`}
-          href={item.href}
-          aria-current={isActive(pathname, item.href) ? "page" : undefined}
-          key={item.href}
-        >
-          {item.label}
-        </Link>
-      ))}
-      {session ? (
+      {navItems.map((item) => {
+        const hasDropdown = item.label === "Services" || item.label === "Products";
+        
+        if (hasDropdown) {
+          return (
+            <div 
+              key={item.href}
+              className="nav-dropdown-wrapper"
+              onMouseEnter={() => setOpenDropdown(item.label)}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <Link
+                className={`nav-link ${isActive(pathname, item.href) ? "is-active" : ""}`}
+                href={item.href}
+              >
+                {item.label}
+                <ChevronDown size={14} style={{ marginLeft: '4px' }} />
+              </Link>
+              
+              {openDropdown === item.label && (
+                <div className="nav-dropdown">
+                  {item.label === "Services" && (
+                    <>
+                      <div className="nav-dropdown-header">Our Services</div>
+                      {services.map((service) => (
+                        <Link
+                          key={service.slug}
+                          href={`/services#${service.slug}`}
+                          className="nav-dropdown-item"
+                          onClick={() => setOpenDropdown(null)}
+                        >
+                          <strong>{service.title}</strong>
+                          <p>{service.body}</p>
+                        </Link>
+                      ))}
+                    </>
+                  )}
+                  
+                  {item.label === "Products" && (
+                    <>
+                      <div className="nav-dropdown-header">Our Products</div>
+                      <Link
+                        href="/labs#mark8bot"
+                        className="nav-dropdown-item"
+                        onClick={() => setOpenDropdown(null)}
+                      >
+                        <strong>Mark8bot</strong>
+                        <p>Social media campaign management with AI-assisted scheduling and responses.</p>
+                      </Link>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        }
+        
+        return (
+          <Link
+            key={item.href}
+            className={`nav-link ${isActive(pathname, item.href) ? "is-active" : ""}`}
+            href={item.href}
+            aria-current={isActive(pathname, item.href) ? "page" : undefined}
+          >
+            {item.label}
+          </Link>
+        );
+      })}
+      {session && (
         <>
           <Link 
             className="nav-link"
@@ -43,23 +102,6 @@ export function DesktopNav() {
           >
             Logout
           </button>
-        </>
-      ) : (
-        <>
-          <Link 
-            className="nav-link"
-            href="/login"
-            style={{ marginLeft: '12px' }}
-          >
-            Login
-          </Link>
-          <Link
-            className="nav-link nav-action"
-            href="/register"
-          >
-            Register
-            <ArrowUpRight aria-hidden="true" size={14} strokeWidth={2.4} />
-          </Link>
         </>
       )}
     </nav>
@@ -193,13 +235,14 @@ export function SiteFooter() {
           <span>Explore</span>
           <Link href="/services">Services</Link>
           <Link href="/approach">Approach</Link>
-          <Link href="/labs">Labs</Link>
-          <Link href="/careers">Careers</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="/labs">Products</Link>
         </nav>
 
         <div className="footer-col">
-          <span>Contact</span>
+          <span>Company</span>
+          <Link href="/about">About Us</Link>
+          <Link href="/careers">Careers</Link>
+          <Link href="/contact">Contact</Link>
           <a href="mailto:contact@pravarontechnologies.com">contact@pravarontechnologies.com</a>
         </div>
       </div>

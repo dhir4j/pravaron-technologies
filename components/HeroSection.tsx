@@ -5,6 +5,23 @@ import { RevealText } from "./RevealText";
 export function HeroSection() {
   return (
     <section className="hero-section">
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.5 }}
+        >
+          <source src="/assets/website-header-animation.mp4" type="video/mp4" />
+        </video>
+      </div>
+      
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/70 to-white/85 z-[1]" />
+      
       <div className="hero-shell">
         <div className="hero-copy-block relative z-10">
           <p className="system-label">Authorized intelligence builder</p>
