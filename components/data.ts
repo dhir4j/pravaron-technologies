@@ -57,7 +57,7 @@ export const services = [
     title: "Automation System Implementation",
     body: "Convert repetitive operations into reliable automated workflows across tools and teams.",
     layer: "Automation Layer",
-    deliverables: ["Workflow engines", "Approval routing", "Scheduled jobs", "Alerting and observability"]
+    deliverables: ["Playwright", "Selenium", "Scheduled jobs", "Alerting and observability"]
   },
   {
     slug: "technology-consulting",
@@ -90,7 +90,7 @@ export const techLayers = [
   ["Experience Layer", "Next.js, responsive interfaces, design systems, micro-interactions"],
   ["Application Layer", "APIs, auth, payments, admin tools, product logic"],
   ["Agentic Intelligence Layer", "LLM orchestration, RAG, tool use, evaluators, review loops"],
-  ["Automation Layer", "Workflow engines, messaging, integrations, triggers, scheduled jobs"],
+  ["Automation Layer", "Playwright, Selenium, messaging, integrations, triggers, scheduled jobs"],
   ["Data Layer", "PostgreSQL, vector search, analytics, event streams, reporting"],
   ["Infrastructure Layer", "Cloud deployment, observability, CI/CD, scaling strategy"],
   ["Security Layer", "Access control, audit trails, data boundaries, operational safeguards"]
