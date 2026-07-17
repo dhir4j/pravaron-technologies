@@ -54,7 +54,7 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     if (status === "unauthenticated") {
-      router.push("/login");
+      router.push("/login/admin");
     } else if (status === "authenticated" && (session?.user as any)?.role !== "admin") {
       router.push("/dashboard");
     }
@@ -249,7 +249,7 @@ export default function AdminDashboard() {
                 Home
               </Link>
               <button
-                onClick={() => signOut({ callbackUrl: "/login" })}
+                onClick={() => signOut({ callbackUrl: "/login/admin" })}
                 className="button button-primary px-6 py-2"
               >
                 Sign Out

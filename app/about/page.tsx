@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { AboutVision } from "@/components/AboutVision";
 import { AboutMission } from "@/components/AboutMission";
+import { FounderProfile } from "@/components/FounderProfile";
 import { AboutValues } from "@/components/AboutValues";
 import { FinalCTA } from "@/components/FinalCTA";
 
@@ -16,10 +17,10 @@ export default function AboutPage() {
     <main>
       <PageHero
         label="About Us"
-        title="Building the autonomous operating layer for modern business."
+        title="Autonomous systems for modern business."
         copy="We design and build agentic AI products, automation platforms, and intelligent systems that transform manual operations into autonomous workflows. From discovery to deployment, we help organizations move from software to intelligent systems."
-        bannerImage="/assets/About_us_Banner.webp"
       />
+      <FounderProfile />
       <AboutVision />
       <AboutMission />
       <AboutValues />

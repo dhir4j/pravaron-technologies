@@ -3,17 +3,17 @@ import { MagneticButton } from "./MagneticButton";
 
 export function ProductsLabsSection() {
   return (
-    <section id="labs" className="section-pad">
+    <section id="products" className="section-pad">
       <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <AnimatedSection className="labs-manifesto">
-          <p className="system-label">Pravaron Labs</p>
+          <p className="system-label">Pravaron Technologies Products</p>
           <h2>We do not only serve clients. We build our own AI-native products.</h2>
           <p>
-            Pravaron Labs explores automation systems, campaign intelligence, agent workflows, and product experiments that push businesses toward an autonomous future.
+            Our product team builds automation systems, campaign intelligence, and agent workflows that prove intelligent operating patterns in production.
           </p>
           <div className="mt-8">
-            <MagneticButton href="/labs" variant="secondary">
-              Explore Pravaron Labs
+            <MagneticButton href="/products" variant="secondary">
+              Explore Products
             </MagneticButton>
           </div>
         </AnimatedSection>

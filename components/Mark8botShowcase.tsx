@@ -12,7 +12,7 @@ export function Mark8botShowcase() {
             <span className="text-xs font-bold uppercase tracking-wider text-orange">Active system</span>
             <h2 className="mt-3 text-5xl lg:text-6xl font-bold text-ink leading-none">Mark8bot</h2>
             <p className="mt-6 text-lg text-muted max-w-xl">
-              Social media campaign workspace for scheduled publishing, assisted responses, content planning, approval workflows, and performance visibility. Built and operated by Pravaron Labs for compliant campaign operations.
+              Social media campaign workspace for scheduled publishing, assisted responses, content planning, approval workflows, and performance visibility. Built and operated by Pravaron Technologies for compliant campaign operations.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -52,4 +52,3 @@ export function Mark8botShowcase() {
     </section>
   );
 }
-

@@ -1,7 +1,7 @@
 export const navItems = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Products", href: "/labs" },
+  { label: "Products", href: "/products" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" }
 ];
@@ -105,10 +105,10 @@ export const mark8botFeatures = [
   ["Campaign analytics", "Delivery, engagement, and operational health stay visible in one place."]
 ];
 
-export const labsPrinciples = [
-  ["Build real operating products", "Labs projects run in production with real users, not demo environments."],
+export const productPrinciples = [
+  ["Build real operating products", "Products run in production with real users, not demo environments."],
   ["Test agent patterns early", "New orchestration, tool-use, and review patterns are proven internally first."],
-  ["Fold learnings back", "What Labs learns in production hardens every client build that follows."]
+  ["Fold learnings back", "What our products teach us in production hardens every client build that follows."]
 ];
 
 export const contactLanes = [
@@ -126,7 +126,7 @@ export const contactLanes = [
   },
   {
     title: "Product Inquiry",
-    body: "Questions about Mark8bot or other Pravaron Labs products, partnerships, or white-label options.",
+    body: "Questions about Mark8bot or other Pravaron Technologies products, partnerships, or white-label options.",
     action: "Product Inquiry",
     href: "mailto:contact@pravarontechnologies.com?subject=Product Inquiry"
   }

@@ -7,16 +7,18 @@ export function PageHero({
   title,
   copy,
   children,
-  bannerImage = "/assets/Banner.png"
+  bannerImage = "/assets/Banner.png",
+  className = ""
 }: {
   label: string;
   title: string;
   copy: string;
   children?: ReactNode;
   bannerImage?: string;
+  className?: string;
 }) {
   return (
-    <section className="page-hero">
+    <section className={`page-hero ${className}`}>
       {/* Background Banner Image - Full Visibility */}
       <div className="absolute inset-0 z-0">
         <Image

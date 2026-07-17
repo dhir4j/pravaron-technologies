@@ -15,8 +15,9 @@ export default function ApproachPage() {
   return (
     <main>
       <PageHero
+        className="page-hero-left"
         label="Approach"
-        title="A build method for intelligent operations."
+        title="Intelligent operations."
         copy="From workflow reality into architecture, shipped software, integration, security, deployment, and continuous improvement — with agents and people in the right places."
       />
       <AgenticAIExplainer />

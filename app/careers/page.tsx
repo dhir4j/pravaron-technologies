@@ -1,233 +1,94 @@
-/* eslint-disable @next/next/no-img-element */
-"use client";
-
-import { Building2, Mail, MapPin, UploadCloud } from "lucide-react";
-import { PageHero } from "@/components/PageHero";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { useState, useRef, useEffect } from "react";
+import { PageHero } from "@/components/PageHero";
 
-const benefits = [
-  {
-    layer: "Development Layer",
-    title: "Growth & Learning",
-    description: "Work on cutting-edge AI and automation systems while learning from experienced engineers."
-  },
-  {
-    layer: "Ownership Layer",
-    title: "Impact & Ownership",
-    description: "Own features and products from conception to deployment with direct client impact."
-  },
-  {
-    layer: "Culture Layer",
-    title: "Culture & Team",
-    description: "Collaborate with a focused team that values craft, outcomes, and continuous improvement."
-  },
-  {
-    layer: "Flexibility Layer",
-    title: "Flexibility & Balance",
-    description: "Remote-friendly work environment with focus on results, not micromanagement."
+type PublicOpening = {
+  job_id: string;
+  title: string;
+  department?: string;
+  employment_type: string;
+  experience_level?: string;
+  location?: string;
+  workplace_model: string;
+  summary: string;
+  url: string;
+};
+
+type OpeningsFeed = {
+  careers_url: string;
+  count: number;
+  openings: PublicOpening[];
+};
+
+async function getOpenings(): Promise<OpeningsFeed | null> {
+  const apiBase = process.env.CAREERS_API_URL || process.env.NEXT_PUBLIC_CAREERS_API_URL || "http://127.0.0.1:5000/api/v1";
+  try {
+    const response = await fetch(`${apiBase.replace(/\/$/, "")}/public/openings`, {
+      next: { revalidate: 300 },
+    });
+    if (!response.ok) return null;
+    return response.json();
+  } catch {
+    return null;
   }
-];
+}
 
-export default function CareersPage() {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [mounted, setMounted] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  // Fix hydration by ensuring client-only rendering for interactive parts
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const handleFileClick = () => {
-    fileInputRef.current?.click();
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setSelectedFile(file);
-    }
-  };
+export default async function CareersPage() {
+  const feed = await getOpenings();
+  const openings = feed?.openings || [];
+  const careersUrl = feed?.careers_url || "https://careers.pravarontechnologies.com";
 
   return (
     <main>
       <PageHero
         label="Careers"
-        title="Build your future with Pravaron"
-        copy="The next generation of focused software, automation, and intelligent systems needs people who care about craft and outcomes."
+        title="Build your future with Pravaron Technologies."
+        copy="Build focused software, automation, and intelligent systems with people who care about craft, reliability, and outcomes."
       />
 
-      {/* Coming Soon Section */}
-      <section className="section-pad">
+      <section className="section-pad corporate-openings-section">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="min-h-[60vh] flex items-center justify-center">
-            <div className="text-center max-w-2xl">
-              <AnimatedSection>
-                <h2 className="text-[clamp(3rem,6vw,5rem)] font-bold text-ink mb-6">
-                  Coming Soon
-                </h2>
-                <p className="text-xl text-muted leading-relaxed">
-                  We're currently building our careers page. Check back soon for open positions and application details.
-                </p>
-                <div className="mt-10">
-                  <a 
-                    href="mailto:careers@pravarontechnologies.com?subject=Career Inquiry" 
-                    className="button button-primary"
-                  >
-                    <Mail size={18} aria-hidden="true" />
-                    Email Us Your Interest
+          <AnimatedSection className="corporate-openings-heading">
+            <p className="system-label">Open positions</p>
+            <h2 className="section-title">Find the work that fits your edge.</h2>
+            <p className="section-copy mt-6">Current opportunities are managed through the Pravaron Technologies Careers workspace.</p>
+          </AnimatedSection>
+
+          {openings.length ? (
+            <div className="corporate-opening-list">
+              {openings.map((opening, index) => (
+                <AnimatedSection key={opening.job_id} delay={Math.min(index * 0.06, 0.24)}>
+                  <a className="corporate-opening-card" href={opening.url}>
+                    <div>
+                      <span className="corporate-opening-code">{opening.job_id}</span>
+                      <h3>{opening.title}</h3>
+                      <p>{opening.summary}</p>
+                    </div>
+                    <div className="corporate-opening-meta">
+                      <span><MapPin size={16} aria-hidden="true" />{opening.location || "Location flexible"}</span>
+                      <span>{opening.workplace_model}</span>
+                      <span>{opening.department || "Engineering"}</span>
+                      <span>{opening.employment_type}</span>
+                    </div>
+                    <span className="corporate-opening-action" aria-hidden="true"><ArrowUpRight size={21} /></span>
                   </a>
-                </div>
-              </AnimatedSection>
+                </AnimatedSection>
+              ))}
             </div>
+          ) : (
+            <div className="corporate-openings-empty">
+              <h3>No roles are published right now.</h3>
+              <p>New opportunities will appear here automatically when the hiring team publishes them.</p>
+              <a className="button button-secondary" href="mailto:careers@pravarontechnologies.com">Contact the careers team</a>
+            </div>
+          )}
+
+          <div className="corporate-careers-profile">
+            <div><span>Pravaron Technologies Careers</span><strong>Keep your profile ready for the next opportunity.</strong></div>
+            <a className="button button-primary" href={`${careersUrl}/register`}>Create candidate profile<ArrowUpRight size={18} /></a>
           </div>
         </div>
       </section>
-
-      {/* COMMENTED OUT FOR FUTURE USE */}
-      {/* Why Join Section */}
-      {/* <section className="section-pad">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <AnimatedSection className="max-w-3xl">
-              <p className="system-label">Why Join</p>
-              <h2 className="section-title">One team, four core benefits.</h2>
-              <p className="section-copy mt-6">
-                Growth opportunities, meaningful work, collaborative culture, and work-life balance combined into one career path.
-              </p>
-            </AnimatedSection>
-          </div>
-
-          <div className="services-index">
-            {benefits.map((benefit, index) => (
-              <AnimatedSection key={benefit.title} delay={index * 0.06}>
-                <div className="services-index-row">
-                  <span className="deployment-layer">{benefit.layer}</span>
-                  <div>
-                    <strong>{benefit.title}</strong>
-                    <p className="mt-2 text-muted">{benefit.description}</p>
-                  </div>
-                  <span className="services-index-arrow" aria-hidden="true">→</span>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* Application Form Section - COMMENTED OUT FOR FUTURE USE */}
-      {/* <section className="py-20 border-t border-b border-line">
-        <div className="max-w-none mx-0">
-          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
-            <div className="flex flex-col justify-center px-8 lg:px-16 py-12 bg-orange-subtle/30">
-              <p className="system-label">Apply</p>
-              <h2 className="mt-3 text-5xl lg:text-6xl font-bold text-ink leading-tight">
-                Share your profile with Pravaron.
-              </h2>
-              
-              <div className="mt-10 pt-8 border-t border-ink/10">
-                <div className="flex items-center gap-3 mb-4">
-                  <Building2 size={24} className="text-[#E2231A]" aria-hidden="true" />
-                  <strong className="text-xl font-bold text-ink">Pravaron Technologies Pvt. Ltd.</strong>
-                </div>
-                
-                <p className="text-base text-muted mb-6">
-                  Corporate workspace in Noida, India.
-                </p>
-                
-                <div className="space-y-3">
-                  <a 
-                    href="mailto:careers@pravarontechnologies.com?subject=Careers Inquiry" 
-                    className="flex items-center gap-3 text-base text-ink hover:text-[#E2231A] transition-colors duration-200"
-                  >
-                    <Mail size={18} aria-hidden="true" />
-                    careers@pravarontechnologies.com
-                  </a>
-                  <a 
-                    href="https://www.google.com/maps/search/?api=1&query=EON%20FairFox%20Sector%20140A%20Noida" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="flex items-center gap-3 text-base text-ink hover:text-[#E2231A] transition-colors duration-200"
-                  >
-                    <MapPin size={18} aria-hidden="true" />
-                    O-621, Block-A, EON FairFox, Sector-140A, Noida
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col justify-center bg-white px-8 lg:px-16 py-12">
-              <form className="w-full max-w-2xl mx-auto" id="apply">
-                <p className="system-label">Application Form</p>
-                <h2 className="mt-3 text-3xl font-bold text-ink mb-8">Job application form</h2>
-                
-                <div className="form-grid">
-                  <label>
-                    Full name
-                    <input placeholder="Enter your full name" />
-                  </label>
-                  <label>
-                    Email address
-                    <input type="email" placeholder="you@example.com" />
-                  </label>
-                  <label>
-                    Phone number
-                    <input placeholder="+91 00000 00000" />
-                  </label>
-                  <label>
-                    Role
-                    <input placeholder="Role you want to apply for" />
-                  </label>
-                  <label className="form-full">
-                    Portfolio / LinkedIn
-                    <input placeholder="https://linkedin.com/in/your-profile" />
-                  </label>
-                  <label className="form-full">
-                    Message
-                    <textarea placeholder="Tell us about your experience and interest" rows={5} />
-                  </label>
-                </div>
-                
-                <div 
-                  className="resume-dropzone" 
-                  onClick={handleFileClick}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      handleFileClick();
-                    }
-                  }}
-                >
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept=".pdf,.doc,.docx"
-                    onChange={handleFileChange}
-                    className="hidden"
-                    aria-label="Upload resume"
-                  />
-                  <UploadCloud size={22} aria-hidden="true" />
-                  <span>{selectedFile ? selectedFile.name : 'Resume upload'}</span>
-                  <small>{selectedFile ? `${(selectedFile.size / 1024).toFixed(1)} KB` : 'PDF, DOC, or DOCX'}</small>
-                </div>
-                
-                <div className="flex justify-center mt-6">
-                  <button 
-                    type="button" 
-                    className="button button-primary px-12 py-4"
-                  >
-                    Submit Application
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section> */}
     </main>
   );
 }
-
-

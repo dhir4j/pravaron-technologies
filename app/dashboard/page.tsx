@@ -36,7 +36,7 @@ export default function ApplicantDashboard() {
 
   useEffect(() => {
     if (status === "unauthenticated") {
-      router.push("/login");
+      router.push("/");
     } else if (status === "authenticated" && (session?.user as any)?.role !== "applicant") {
       router.push("/admin");
     }
@@ -146,7 +146,7 @@ export default function ApplicantDashboard() {
                 Home
               </Link>
               <button
-                onClick={() => signOut({ callbackUrl: "/login" })}
+                onClick={() => signOut({ callbackUrl: "/" })}
                 className="button button-primary"
               >
                 Sign Out

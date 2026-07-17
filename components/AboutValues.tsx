@@ -1,3 +1,4 @@
+import { ChevronDown } from "lucide-react";
 import { AnimatedSection } from "./AnimatedSection";
 
 const whoWeWorkWith = [
@@ -18,16 +19,8 @@ const whoWeWorkWith = [
     description: "Teams improving decision-making with data-driven insights and recommendations."
   },
   {
-    title: "Operational Efficiency",
-    description: "Enterprises reducing fragmentation and connecting disparate operational systems."
-  },
-  {
     title: "Product Validation",
     description: "Startups testing and validating AI product concepts before full-scale development."
-  },
-  {
-    title: "Workflow Modernization",
-    description: "Companies updating legacy processes with modern automation and AI capabilities."
   },
   {
     title: "Production Deployment",
@@ -78,12 +71,15 @@ export function AboutValues() {
 
           <div className="deployment-map mt-12">
             {approach.map((item, index) => (
-              <AnimatedSection className="deployment-row" delay={index * 0.045} key={item.title}>
-                <span className="deployment-layer">Principle {index + 1}</span>
-                <div>
-                  <h3>{item.title}</h3>
+              <AnimatedSection delay={index * 0.045} key={item.title}>
+                <details className="deployment-row about-approach-disclosure">
+                  <summary>
+                    <span className="deployment-layer">Principle {index + 1}</span>
+                    <h3>{item.title}</h3>
+                    <ChevronDown size={20} aria-hidden="true" />
+                  </summary>
                   <p>{item.body}</p>
-                </div>
+                </details>
               </AnimatedSection>
             ))}
           </div>
@@ -101,7 +97,7 @@ export function AboutValues() {
             </p>
           </AnimatedSection>
 
-          <div className="grid gap-6 mt-16 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 mt-16 sm:grid-cols-2 lg:grid-cols-3">
             {whoWeWorkWith.map((item, index) => (
               <AnimatedSection 
                 key={item.title}

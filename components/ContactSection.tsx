@@ -1,10 +1,11 @@
 import { contactLanes, contactSteps } from "./data";
 import { AnimatedSection } from "./AnimatedSection";
 import { MagneticButton } from "./MagneticButton";
+import { ArrowUpRight, MapPin } from "lucide-react";
 
 export function ContactLanes() {
   return (
-    <section className="section-pad">
+    <section className="section-pad contact-lanes-section">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="contact-grid">
           {contactLanes.map((lane, index) => (
@@ -21,9 +22,20 @@ export function ContactLanes() {
         </div>
 
         <AnimatedSection className="contact-direct" delay={0.1}>
-          <span className="system-label">Direct line</span>
-          <a href="mailto:contact@pravarontechnologies.com">contact@pravarontechnologies.com</a>
-          <p>O-621, Block-A, EON Fairfox, Sector-140A, Noida.</p>
+          <div className="contact-direct-copy">
+            <span className="system-label">Direct line</span>
+            <a href="mailto:contact@pravarontechnologies.com">
+              contact@pravarontechnologies.com
+              <ArrowUpRight size={24} aria-hidden="true" />
+            </a>
+          </div>
+          <div className="contact-direct-location">
+            <MapPin size={20} aria-hidden="true" />
+            <div>
+              <span>Office</span>
+              <p>O-621, Block-A, EON Fairfox,<br />Sector-140A, Noida.</p>
+            </div>
+          </div>
         </AnimatedSection>
       </div>
     </section>
@@ -32,7 +44,7 @@ export function ContactLanes() {
 
 export function ContactSteps() {
   return (
-    <section className="section-pad builds-upgrade">
+    <section className="section-pad builds-upgrade contact-steps-section">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="max-w-3xl">
           <p className="system-label">What Happens Next</p>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -11,11 +11,6 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,16 +30,12 @@ export default function AdminLoginPage() {
         router.push("/admin");
         router.refresh();
       }
-    } catch (err: any) {
+    } catch {
       setError("An error occurred. Please try again.");
     } finally {
       setLoading(false);
     }
   };
-
-  if (!mounted) {
-    return null; // Prevent hydration mismatch
-  }
 
   return (
     <div className="min-h-screen grid lg:grid-cols-2">
@@ -114,8 +105,8 @@ export default function AdminLoginPage() {
           </form>
 
           <div className="mt-8 text-center">
-            <Link href="/login" className="text-sm text-muted hover:text-orange transition-colors">
-              Back to applicant login
+            <Link href="/" className="text-sm text-muted hover:text-orange transition-colors">
+              Back to website
             </Link>
           </div>
         </div>

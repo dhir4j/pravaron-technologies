@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
-import { useSession, signOut } from "next-auth/react";
-import { navItems, services, capabilities } from "./data";
+import { ChevronDown } from "lucide-react";
+import { navItems, services } from "./data";
 
 function isActive(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -13,7 +13,6 @@ function isActive(pathname: string, href: string) {
 
 export function DesktopNav() {
   const pathname = usePathname();
-  const { data: session } = useSession();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
@@ -60,7 +59,7 @@ export function DesktopNav() {
                     <>
                       <div className="nav-dropdown-header">Our Products</div>
                       <Link
-                        href="/labs#mark8bot"
+                        href="/products#mark8bot"
                         className="nav-dropdown-item"
                         onClick={() => setOpenDropdown(null)}
                       >
@@ -86,115 +85,38 @@ export function DesktopNav() {
           </Link>
         );
       })}
-      {session && (
-        <>
-          <Link 
-            className="nav-link"
-            href={(session.user as any)?.role === "admin" ? "/admin" : "/dashboard"}
-            style={{ marginLeft: '12px' }}
-          >
-            {(session.user as any)?.role === "admin" ? "Admin" : "Dashboard"}
-          </Link>
-          <button
-            onClick={() => signOut({ callbackUrl: '/login' })}
-            className="nav-link"
-            style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-          >
-            Logout
-          </button>
-        </>
-      )}
     </nav>
   );
 }
 
 export function MobileNav() {
-  const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const { data: session } = useSession();
-
-  useEffect(() => {
-    if (!open) return;
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open]);
 
   return (
-    <div className="mobile-nav-wrap">
-      <button
+    <details className="mobile-nav-wrap">
+      <summary
         className="menu-button"
-        type="button"
-        aria-label={open ? "Close navigation" : "Open navigation"}
-        aria-expanded={open}
-        onClick={() => setOpen((value) => !value)}
+        aria-label="Toggle navigation"
       >
         <span />
         <span />
-      </button>
+      </summary>
 
-      <div
-        className={`mobile-backdrop ${open ? "is-open" : ""}`}
-        aria-hidden="true"
-        onClick={() => setOpen(false)}
-      />
+      <div className="mobile-backdrop" aria-hidden="true" />
 
-      <div className={`mobile-drawer ${open ? "is-open" : ""}`}>
+      <div className="mobile-drawer">
         {navItems.map((item) => (
           <Link
             href={item.href}
             className={isActive(pathname, item.href) ? "is-active" : ""}
             aria-current={isActive(pathname, item.href) ? "page" : undefined}
             key={item.href}
-            onClick={() => setOpen(false)}
           >
             {item.label}
           </Link>
         ))}
-        <div style={{ borderTop: '1px solid #E5E7EB', margin: '16px 0' }} />
-        {session ? (
-          <>
-            <Link
-              href={(session.user as any)?.role === "admin" ? "/admin" : "/dashboard"}
-              className="button button-secondary"
-              onClick={() => setOpen(false)}
-              style={{ marginBottom: '12px' }}
-            >
-              {(session.user as any)?.role === "admin" ? "Admin Panel" : "Dashboard"}
-            </Link>
-            <button
-              onClick={() => {
-                setOpen(false);
-                signOut({ callbackUrl: '/login' });
-              }}
-              className="button button-primary"
-            >
-              Logout
-            </button>
-          </>
-        ) : (
-          <>
-            <Link
-              href="/login"
-              className="button button-secondary"
-              onClick={() => setOpen(false)}
-              style={{ marginBottom: '12px' }}
-            >
-              Login
-            </Link>
-            <Link
-              href="/register"
-              className="button button-primary"
-              onClick={() => setOpen(false)}
-            >
-              Register
-            </Link>
-          </>
-        )}
       </div>
-    </div>
+    </details>
   );
 }
 
@@ -211,7 +133,13 @@ export function Header() {
   return (
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
       <Link href="/" className="brand-lockup" aria-label="Pravaron Technologies home">
-        <strong>Pravaron Technologies</strong>
+        <span className="brand-mark" aria-hidden="true">
+          <Image src="/images/pravaron-mark.png" alt="" width={48} height={42} priority />
+        </span>
+        <span className="brand-copy">
+          <strong className="brand-name">Pravaron</strong>
+          <small className="brand-qualifier">Technologies</small>
+        </span>
       </Link>
       <DesktopNav />
       <MobileNav />
@@ -224,10 +152,20 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="footer-shell">
         <div className="footer-brand">
-          <div>
-            <strong>Pravaron Technologies</strong>
-            <p>Agentic AI infrastructure for future-ready businesses. Strategy, software, automation, and execution as one operating layer.</p>
-            <p className="footer-address">O-621, Block-A, EON Fairfox, Sector-140A, Noida.</p>
+          <div className="footer-brand-content">
+            <Link href="/" className="footer-brand-lockup" aria-label="Pravaron Technologies home">
+              <span className="footer-brand-mark" aria-hidden="true">
+                <Image src="/images/pravaron-mark.png" alt="" width={56} height={48} />
+              </span>
+              <span className="footer-brand-copy">
+                <strong>Pravaron</strong>
+                <small>Technologies</small>
+              </span>
+            </Link>
+            <p className="footer-statement">Agentic AI infrastructure for future-ready businesses. Strategy, software, automation, and execution as one operating layer.</p>
+            <div className="footer-address">
+              <p>O-621, Block-A, EON Fairfox, Sector-140A, Noida.</p>
+            </div>
           </div>
         </div>
 
@@ -235,7 +173,7 @@ export function SiteFooter() {
           <span>Explore</span>
           <Link href="/services">Services</Link>
           <Link href="/approach">Approach</Link>
-          <Link href="/labs">Products</Link>
+          <Link href="/products">Products</Link>
         </nav>
 
         <div className="footer-col">
@@ -243,13 +181,12 @@ export function SiteFooter() {
           <Link href="/about">About Us</Link>
           <Link href="/careers">Careers</Link>
           <Link href="/contact">Contact</Link>
-          <a href="mailto:contact@pravarontechnologies.com">contact@pravarontechnologies.com</a>
         </div>
       </div>
 
       <div className="footer-baseline">
-        <span>Pravaron Technologies Pvt. Ltd.</span>
-        <span>Agentic AI Infrastructure for Future-Ready Businesses</span>
+        <span>© 2026 Pravaron Technologies Pvt. Ltd.</span>
+        <span>Noida, India</span>
       </div>
     </footer>
   );
