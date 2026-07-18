@@ -6560,12 +6560,7 @@ article {
   }
 }
 
-/* Site scale adjustment requested for pravarontechnologies.com. */
-body {
-  zoom: 0.9;
-}
-
-/* Keep the mobile hero media flush with the viewport edge after scaling. */
+/* Keep the mobile hero media flush with the viewport edge. */
 @media (max-width: 768px) {
   .corp-hero {
     isolation: isolate;
