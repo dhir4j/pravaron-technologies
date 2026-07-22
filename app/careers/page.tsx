@@ -21,7 +21,7 @@ type OpeningsFeed = {
 };
 
 async function getOpenings(): Promise<OpeningsFeed | null> {
-  const apiBase = process.env.CAREERS_API_URL || process.env.NEXT_PUBLIC_CAREERS_API_URL || "http://127.0.0.1:5000/api/v1";
+  const apiBase = process.env.CAREERS_API_URL || process.env.NEXT_PUBLIC_CAREERS_API_URL || "http://server2careers.pravarontechnologies.com/api/v1";
   try {
     const response = await fetch(`${apiBase.replace(/\/$/, "")}/public/openings`, {
       next: { revalidate: 300 },
